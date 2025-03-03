@@ -731,6 +731,11 @@
             .about-text h3:first-child {
                 display: none; /* Removes the first h3 in about-text which is "Our Story" */
             }
+
+            /* Add invisible placeholder with same dimensions to maintain spacing */
+            .about-text h3:first-child + p {
+                margin-top: 3rem; /* Adjusts spacing to account for removed heading */
+            }
         }
         
         /* Contact Section */
@@ -986,8 +991,8 @@
                 width: 100%;
                 opacity: 0.9;
                 filter: brightness(0.8);
-                /* background-position: right center; */ /* Show the right portion */
-                background-position: center center; /* Show the center portion (default) */
+                background-position: right center; /* Show the right portion */
+                /* background-position: center center; */ /* Show the center portion (default) */
                 /* background-position: left center; */ /* Show the left portion */
             }
             
