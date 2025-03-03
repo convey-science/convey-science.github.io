@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convey Science | Make Your Science Understood</title>
+    <style>
+        /* Variables */
+        :root {
+            --primary-color: rgb(6, 39, 58);
+            --light-color: rgb(255, 254, 248);
+            --accent-color: rgb(255, 249, 236);
+            --text-color: #333;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+        }
+        
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 2px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background-color: rgba(6, 39, 58, 0.9);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 254, 248, 0.95);
+            box-shadow: var(--box-shadow);
+            padding: 0.1rem 0;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 75px;
+            margin-right: 1rem;
+        }
+        
+        .logo-text {
+            font-family: 'Cormorant Garamond', 'Georgia', serif; /* Match h1 font */
+            font-size: 2rem;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+        
+        .latina-owned {
+            font-size: 0.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 2px;
+            margin-left: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+        }
+        
+        nav li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            font-weight: 500;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info a {
+            margin-left: 1rem;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        #hero {
+            min-height: 50vh; /* Adjust height as needed */
+            position: relative;
+            padding-bottom: 0.5rem; /* Extra padding at bottom for blocks */
+            z-index: 1;
+        }
+
+        .hero-content {
+            padding: 2rem;
+            border-radius: 5px;
+            margin-bottom: 8.5rem; /* Space between text and blocks */
+            margin-top: 3rem; /* Increase this value to move it further down */
+            text-align: center; /* Center text within the content box */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.75; /* Full opacity for the background image */
+            z-index: 0;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 0rem;
+            color: rgba(255,255,255,1) !important;
+            font-size: 6rem;
+            font-weight: 1000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Stronger shadow for better visibility */
+            z-index: 2;
+        }
+
+        .hero-tagline {
+            font-size: 2rem;
+            margin-bottom: 0rem;
+            color: rgba(255,255,255,1) !important;
+            font-weight: 1000;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6); /* Stronger shadow for better visibility */
+            z-index: 2;
+        }
+        
+        .hero-blocks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .hero-block {
+            padding: 2rem;
+            background-color: var(--light-color);
+            border-radius: 3px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .hero-block:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-block h3 {
+            margin-bottom: -1rem;
+            color: var(--primary-color);
+        }
+
+        .hero-block p {
+            font-size: 1rem;
+        }
+
+
+        
+        /* Why Us Section */
+        #why-us {
+            background-color: white;
+        }
+        
+        .why-us-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: -2rem;
+        }
+        
+        .why-us-item {
+            padding: 2rem;
+            background-color: var(--light-color);
+            border-radius: 3px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .why-us-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .why-us-item h3 {
+            margin-bottom: 1rem;
+            font-size: 2.3rem; /* Increase title size */
+        }
+        
+        .why-us-item p {
+            font-size: 1rem;
+            font-size: 1.2rem; /* Increase title size */
+        }
+        
+        /* Services Section */
+        #services {
+            background-color: var(--accent-color);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 3px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Portfolio Section */
+        #portfolio {
+            background-color: white;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-color);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .filter-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover::after,
+        .filter-btn.active::after {
+            width: 100%;
+        }
+        
+        .filter-btn.active {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .portfolio-item {
+            overflow: hidden;
+            border-radius: 3px;
+            box-shadow: var(--box-shadow);
+            background-color: var(--light-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .portfolio-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            padding: 2rem;
+            overflow-y: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 5px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-img-container {
+            max-height: 80vh;
+            overflow: hidden;
+            position: relative;
+            padding: 15px;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+            max-height: calc(75vh - 30px); /* Adjusted to account for padding */
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border-radius: 3px;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2001;
+        }
+        
+        .modal-close:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                max-height: 85vh;
+            }
+            
+            .modal-img {
+                max-height: 40vh;
+            }
+            
+            .modal-body {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-modal {
+                padding: 1rem;
+            }
+            
+            .modal-content {
+                width: 100%;
+            }
+            
+            .modal-body {
+                padding: 1rem;
+            }
+        }
+
+        .portfolio-carousel {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            flex: 0 0 100%;
+            padding: 0 1rem;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .carousel-control {
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-control:hover {
+            background-color: rgba(6, 39, 58, 0.8);
+        }
+        
+        .portfolio-preview {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+        
+        .portfolio-preview:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Testimonials Section */
+        #testimonials {
+            background-color: var(--accent-color);
+        }
+        
+        .testimonial-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-item {
+            text-align: center;
+            padding: 0 2rem;
+            min-height: 300px; /* Adjust this value based on your longest testimonial */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .testimonial-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            flex-grow: 1; /* This helps distribute space within the container */
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.5rem;  /* Increased from default (likely 1rem) */
+        }
+        
+        .testimonial-company {
+            font-size: 0.9rem;
+        }
+        
+        /* Clients Section */
+        #clients {
+            background-color: white;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            justify-items: center; /* Centers items horizontally in their grid cells */
+            align-items: center;
+        }
+        
+        .client-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            transition: var(--transition);
+            border-radius: 5px;
+            width: 100%; /* Takes full width of the grid cell */
+            height: 100%; /* Takes full height of the grid cell */
+        }
+
+        .client-item:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .client-logo {
+            height: 120px; /* Fixed height */
+            width: auto;  /* Allow width to vary */
+            max-width: 180px; /* Prevent extremely wide logos */
+            object-fit: contain;
+            transition: var(--transition);
+            margin-bottom: 0.75rem;
+            display: block; /* Ensures the image is treated as a block element */
+            margin-left: auto; /* These two margin properties */
+            margin-right: auto; /* center the logo horizontally */
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        .client-item:hover .client-logo {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .clients-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .client-logo {
+                max-width: 120px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--accent-color);
+            position: relative;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-img {
+            margin-top: -2rem; /* Moves image up */
+            border-radius: 3px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            margin-top: -5rem; /* Moves text up */
+        }
+        .about-text h3 {
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        #contact {
+            margin-top: -2rem;
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-form {
+            padding: 2rem;
+            background-color: var(--light-color);
+            border-radius: 3px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-info-box {
+            padding: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 3px;
+            height: 50%;
+        }
+        
+        .contact-info-box h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+        
+        .contact-detail {
+            font-size: 1.1rem;
+        }
+        
+        .contact-detail a {
+            color: white;
+        }
+        
+       /* Updated Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0 1rem; /* Reduced padding */
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Changed from 3 columns to 2 */
+            gap: 2rem;
+            margin-bottom: 1.5rem; /* Reduced margin */
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem; /* Reduced margin */
+            display: inline-block;
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+        }
+
+        .footer-about p {
+            margin-bottom: 1rem; /* Reduced margin */
+            font-size: 0.9rem; /* Smaller text */
+            line-height: 1.4;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: white;
+            margin-bottom: 1rem; /* Reduced margin */
+            font-size: 1.1rem; /* Smaller heading */
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.7rem;
+            font-size: 0.9rem; /* Smaller text */
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.5rem; /* Reduced spacing */
+            font-size: 0.9rem; /* Smaller text */
+        }
+
+        .footer-links a, .footer-contact a {
+            color: white;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover, .footer-contact a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 1rem; /* Reduced margin */
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; /* Slightly smaller */
+            height: 36px; /* Slightly smaller */
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 0.8rem;
+            transition: var(--transition);
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .social-icon:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1rem; /* Reduced padding */
+            margin-top: 1rem; /* Reduced margin */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem; /* Smaller text */
+        }
+
+        /* Add icon spacing */
+        .footer-contact i, .footer-links i {
+            margin-right: 0.5rem;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .why-us-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-img {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 1rem 0;
+            }
+            
+            nav ul.show {
+                display: block;
+            }
+            
+            nav li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+            
+            .why-us-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-bg {
+                width: 100%;
+                opacity: 0.3;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .footer-nav {
+                flex-direction: column;
+            }
+            
+            .footer-links, .footer-contact {
+                margin-bottom: 1.5rem;
+            }
+
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 3rem 0;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                display: none;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+
+    </style>
+    <!-- Font loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/images/logo/Logo.png" alt="Convey Science Logo">
+                <span class="logo-text">Convey</span>
+            </div>
+            
+            <div class="menu-toggle">☰</div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#clients">Clients</a></li>                    
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact"><strong>Contact</strong></a></li>
+                </ul>
+            </nav>
+            <div class="latina_owned">
+                <span class="latina-owned">Latina-owned</span>
+            </div>
+            
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Convey</h1>
+                <p class="hero-tagline">Make Your Science Understood</p>
+            </div>
+        </div>
+        <div class="hero-bg" style="background-image: url('images/hero_background/Hero_background_banner.png');"></div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us">
+        <div class="container">
+            
+            <div class="why-us-container">
+                <div class="why-us-item">
+                    <h3>Secure Funding</h3>
+                    <p>Enhance your grant proposals</p>
+                </div>
+                
+                <div class="why-us-item">
+                    <h3>Tell Your Story</h3>
+                    <p>Transform complex concepts</p>
+                </div>
+                
+                <div class="why-us-item">
+                    <h3>Reach More People</h3>
+                    <p>Expand your research impact</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="services">
+        <div class="container">
+            <h2>What We Do</h2>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Scientific Illustrations</h3>
+                    <p>Custom scientific diagrams, conceptual models, and technical illustrations.</p>
+                </div>
+                
+                <div class="service-item">
+                    <h3>Grant Proposal Graphics</h3>
+                    <p>Eye-catching visuals for NIH, DOE, NSF, and other federal grant proposals.</p>
+                </div>
+                
+                <div class="service-item">
+                    <h3>Journal Publication Figures</h3>
+                    <p>Publication-ready figures that effectively communicate your findings.</p>
+                </div>
+                
+                <div class="service-item">
+                    <h3>Data Visualization</h3>
+                    <p>Clear, compelling representations of that highlight key patterns and insights.</p>
+                </div>
+                
+                <div class="service-item">
+                    <h3>Presentation Graphics</h3>
+                    <p>Impactful slides and posters that enhance your presentations.</p>
+                </div>
+                
+                <div class="service-item">
+                    <h3>Outreach Materials</h3>
+                    <p>Accessible visuals that translate your research for broader audiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Clients Section -->
+        <section id="clients">
+            <div class="container">
+                <h2>Our Clients</h2>
+                <p>We've helped researchers and organizations across various scientific disciplines communicate their work effectively.</p>
+                
+                <div class="clients-grid">
+                    <!-- These will be replaced with actual client logos -->
+                    <img src="/images/clients/client_01.png" alt="Client 1" class="client-logo">
+                    <img src="/images/clients/client_02.png" alt="Client 2" class="client-logo">
+                    <img src="/images/clients/client_03.png" alt="Client 3" class="client-logo">
+                    <img src="/images/clients/client_04.jpg" alt="Client 4" class="client-logo">
+                    <img src="/images/clients/client_05.jpg.png" alt="Client 5" class="client-logo">
+                    <img src="/images/clients/client_06.png" alt="Client 6" class="client-logo">
+                    <img src="/images/clients/client_07.png" alt="Client 7" class="client-logo">
+                    <img src="/images/clients/client_08.jpg" alt="Client 8" class="client-logo">
+
+                </div>
+            </div>
+        </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>Client Testimonials</h2>
+            
+            <div class="testimonial-carousel">
+                <div class="testimonial-item">
+                    <img src="/api/placeholder/100/100" alt="Client Photo" class="testimonial-img">
+                    <p class="testimonial-text">"Susana transformed our complex research into stunning visuals that helped us secure our NSF grant. Her scientific background was invaluable in accurately capturing the nuances of our work."</p>
+                    <h4 class="testimonial-author">Dr. Jane Smith</h4>
+                    <p class="testimonial-company">University of Illinois</p>
+                </div>
+                
+                <!-- More testimonials will be added here -->
+            </div>
+            
+            <div class="carousel-controls">
+                <div class="carousel-control prev">←</div>
+                <div class="carousel-control next">→</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" style="padding-top: 2rem;"> 
+        <div class="container">
+            <h2>Our Portfolio</h2>
+            
+            <!-- Portfolio Carousel for larger screens -->
+            <div class="carousel-controls" style="margin-bottom: 1rem; margin-top: -1rem;">
+                <div class="carousel-control prev">←</div>
+                <div class="carousel-control next">→</div>
+            </div>
+            <div class="portfolio-carousel">
+                <div class="carousel-inner" id="portfolioCarousel">
+                    <!-- JavaScript will populate this area -->
+                </div>
+            </div>
+            
+            <!-- Add spacing between carousel and filters -->
+            <div style="margin-top: 2rem;"></div>
+            
+            <!-- Filters -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="stem">STEM</button>
+                <button class="filter-btn" data-filter="education">Education</button>
+                <button class="filter-btn" data-filter="outreach">Outreach</button>
+            </div>
+            
+            <!-- Portfolio Grid for filtered items -->
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- JavaScript will populate this area -->
+            </div>
+            
+            <!-- Portfolio Modal (appears when item is clicked) -->
+            <div class="portfolio-modal" id="portfolioModal">
+                <div class="modal-content">
+                    <span class="modal-close">&times;</span>
+                    <div class="modal-img-container">
+                        <img src="" alt="" class="modal-img">
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="modal-title">Portfolio Item Title</h3>
+                        <p class="modal-description">Detailed description of the portfolio item will appear here when an item is clicked.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="/images/about/profile_photo.jpg" alt="Susana Roque-Malo">
+                </div>
+                
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p><strong>Susana Roque-Malo, PhD </strong> founded Convey Science LLC in 2021 to help researchers beautifully convey the stories behind their science.</p>
+                    
+                    <h3>Credentials</h3>
+                    <p>Roque-Malo holds a PhD in Civil Engineering (hydrology) from the University of Illinois Urbana Champaign. She has extensive experience providing graphics support for NSF, USDA, NIH, DOT, DOE, EDA, and other grant proposals, and leading peer-reviewed scientific journals.</p>
+                    
+                    <h3>Our Approach</h3>
+                    <p>At Convey Science, we blend scientific expertise with design excellence to create visuals that are both technically accurate and visually compelling. We work closely with our clients to understand their research goals and target audience, ensuring that every graphic effectively communicates the intended message.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formspree.io/f/xeoeyzpo" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info-box">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <div class="contact-detail">
+                            <p>Email:</p>
+                            <a href="mailto:convey.science@protonmail.com">convey.science@protonmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <div class="contact-detail">
+                            <p>Website:</p>
+                            <a href="https://www.convey.science">www.convey.science</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Convey</a>
+                    <p>Making science accessible through beautiful, accurate visualizations since 2021.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/convey-science-llc/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/convey_science" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/conveyscience" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <div class="quick-links-grid">
+                            <a href="#hero">Home</a>
+                            <a href="#services">Services</a>
+                            <a href="#portfolio">Portfolio</a>
+                            <a href="#about">About</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>Contact Us</h4>
+                        <p><i class="far fa-envelope"></i> <a href="mailto:convey.science@protonmail.com">convey.science@protonmail.com</a></p>
+                        <p><i class="fas fa-globe"></i> <a href="https://www.convey.science">www.convey.science</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Convey Science, LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- JavaScript -->
+    <script>
+        // Sticky Header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0.25rem 0';
+                header.style.backgroundColor = 'rgba(255, 254, 248, 0.98)';
+            } else {
+                header.style.padding = '0.25rem 0';
+                header.style.backgroundColor = 'rgba(255, 254, 248, 0.95)';
+            }
+        });
+        
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Hide mobile menu after clicking
+                    if (navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                    }
+                }
+            });
+        });
+        
+        // Portfolio Data - Define all portfolio items in one place
+        const portfolioData = [
+            {
+                id: 1,
+                title: "Portfolio Item 1",
+                description: "Detailed illustration of cellular processes showing protein interactions within a cell membrane.",
+                image: "/images/portfolio/portfolio_01.png",
+                category: "stem"
+            },
+            {
+                id: 2,
+                title: "Portfolio Item 2",
+                description: "Visualization of climate change impacts on coastal ecosystems over time.",
+                image: "/images/portfolio/portfolio_02.png",
+                category: "stem"
+            },
+            {
+                id: 3,
+                title: "Portfolio Item 3",
+                description: "Conceptual diagram explaining neural network architecture for machine learning applications.",
+                image: "/images/portfolio/portfolio_03.png",
+                category: "stem"
+            },
+            {
+                id: 4,
+                title: "Portfolio Item 4",
+                description: "Educational infographic on biodiversity concepts designed for high school curriculum.",
+                image: "/images/portfolio/portfolio_04.png",
+                category: "education"
+            },
+            {
+                id: 5,
+                title: "Portfolio Item 5",
+                description: "Detailed illustration of geological formations in cross-section for academic publication.",
+                image: "/images/portfolio/portfolio_05.png",
+                category: "stem"
+            },
+            {
+                id: 6,
+                title: "Portfolio Item 6",
+                description: "Grant proposal figure showing experimental setup for biochemistry research.",
+                image: "/images/portfolio/portfolio_06.png",
+                category: "stem"
+            }
+            // You can add more items here as needed
+        ];
+
+        // Function to populate the portfolio carousel
+        function populatePortfolioCarousel() {
+            const carouselContainer = document.getElementById('portfolioCarousel');
+            carouselContainer.innerHTML = ''; // Clear existing content
+            
+            portfolioData.forEach((item) => {
+                const carouselItem = document.createElement('div');
+                carouselItem.className = 'carousel-item';
+                carouselItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="portfolio-preview">
+                `;
+                carouselContainer.appendChild(carouselItem);
+            });
+        }
+
+        // Function to populate the portfolio grid
+        function populatePortfolioGrid() {
+            const gridContainer = document.getElementById('portfolioGrid');
+            gridContainer.innerHTML = ''; // Clear existing content
+            
+            portfolioData.forEach((item) => {
+                const gridItem = document.createElement('div');
+                gridItem.className = 'portfolio-item';
+                gridItem.setAttribute('data-category', item.category);
+                gridItem.setAttribute('data-id', item.id);
+                gridItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="portfolio-img">
+                `;
+                gridContainer.appendChild(gridItem);
+                
+                // Add click event to show modal
+                gridItem.addEventListener('click', () => {
+                    openPortfolioModal(item);
+                });
+            });
+        }
+
+        // Function to open portfolio modal with specific item data
+        function openPortfolioModal(item) {
+            const portfolioModal = document.getElementById('portfolioModal');
+            const modalImg = portfolioModal.querySelector('.modal-img');
+            const modalTitle = portfolioModal.querySelector('.modal-title');
+            const modalDescription = portfolioModal.querySelector('.modal-description');
+            
+            modalImg.src = item.image;
+            modalImg.alt = item.title;
+            modalTitle.textContent = item.title;
+            modalDescription.textContent = item.description;
+            
+            portfolioModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Portfolio Filtering
+        function setupPortfolioFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        // Portfolio Carousel Controls
+        function setupPortfolioCarousel() {
+            const carousel = document.getElementById('portfolioCarousel');
+            const carouselItems = document.querySelectorAll('#portfolioCarousel .carousel-item');
+            const prevBtn = document.querySelector('#portfolio .carousel-controls .prev');
+            const nextBtn = document.querySelector('#portfolio .carousel-controls .next');
+            let currentSlide = 0;
+            
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            
+            // Debug
+            console.log('Carousel elements:', {
+                carousel: carousel,
+                items: carouselItems.length,
+                prevBtn: prevBtn,
+                nextBtn: nextBtn
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                console.log('Previous button clicked');
+                currentSlide = (currentSlide > 0) ? currentSlide - 1 : carouselItems.length - 1;
+                updateCarousel();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                console.log('Next button clicked');
+                currentSlide = (currentSlide < carouselItems.length - 1) ? currentSlide + 1 : 0;
+                updateCarousel();
+            });
+        }
+
+        // Modal Close Functionality
+        function setupPortfolioModal() {
+            const portfolioModal = document.getElementById('portfolioModal');
+            if (!portfolioModal) return;
+            
+            // IMPORTANT: Make sure the modal is hidden by default
+            portfolioModal.style.display = 'none';
+            
+            const modalClose = portfolioModal.querySelector('.modal-close');
+            
+            function closeModal() {
+                portfolioModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Close icon (X) handler
+            if (modalClose) {
+                modalClose.addEventListener('click', closeModal);
+            }
+            
+            // Click outside modal to close
+            window.addEventListener('click', function(e) {
+                if (e.target === portfolioModal) {
+                    closeModal();
+                }
+            });
+            
+            // Add keyboard escape functionality
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && portfolioModal.style.display === 'block') {
+                    closeModal();
+                }
+            });
+        }
+
+        // Initialize portfolio section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate portfolio items
+            populatePortfolioCarousel();
+            populatePortfolioGrid();
+            
+            // Set up interactive elements
+            setupPortfolioFilters();
+            setupPortfolioCarousel();
+            setupPortfolioModal();
+        });
+        
+        // Testimonial Carousel
+        const testimonials = [
+            {
+                author: "Prof. Praveen Kumar",
+                company: "Executive Director, Prairie Research Institute",
+                text: "I plan to use the services of Convey Science regularly for science communication.",
+                image: "/images/testimonials/testimonial_01.jpeg"
+            },
+            {
+                author: "Prof. Jennifer Andrew",
+                company: "Dept. of Materials Science and Engineering, University of Florida",
+                text: "My team and I had a great experience working with Convey Science to develop figures for a large-scale research proposal. Susana was responsive, detail-oriented, and fantastic to work with. I look forward to working with Convey in the future.",
+                image: "/images/testimonials/testimonial_02.jpg"
+            },
+            {
+                author: "Prof. Jason Vogel",
+                company: "Forest Ecosystems Science, University of Florida",
+                text: "Convey Science helped bring my rough ideas into focus.  Susana was a pleasure to work with, responding to many requests over multiple iterations until we had a product that we were happy with. I would gladly use Convey Science in the future.",
+                image: "/images/testimonials/testimonial_03.png"
+            },
+            
+        ];
+        
+        const testimonialContainer = document.querySelector('.testimonial-item');
+        const testimonialImg = testimonialContainer.querySelector('.testimonial-img');
+        const testimonialText = testimonialContainer.querySelector('.testimonial-text');
+        const testimonialAuthor = testimonialContainer.querySelector('.testimonial-author');
+        const testimonialCompany = testimonialContainer.querySelector('.testimonial-company');
+        
+        let currentTestimonial = 0;
+        
+        function updateTestimonial() {
+            const testimonial = testimonials[currentTestimonial];
+            testimonialImg.src = testimonial.image;
+            testimonialText.textContent = testimonial.text;
+            testimonialAuthor.textContent = testimonial.author;
+            testimonialCompany.textContent = testimonial.company;
+        }
+        
+        document.querySelector('#testimonials .prev').addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial > 0) ? currentTestimonial - 1 : testimonials.length - 1;
+            updateTestimonial();
+        });
+        
+        document.querySelector('#testimonials .next').addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial < testimonials.length - 1) ? currentTestimonial + 1 : 0;
+            updateTestimonial();
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial < testimonials.length - 1) ? currentTestimonial + 1 : 0;
+            updateTestimonial();
+        }, 8000);
+        
+        // Form Handling
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to your server
+            // For this demo, we'll just show a success message
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Simple validation
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if (!name || !email || !message) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            // Allow form submission
+            this.submit();
+        });
+    </script>
+</body>
+</html>
