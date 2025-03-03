@@ -1689,19 +1689,10 @@
         }, 8000);
         
         // Form Handling
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // In a real implementation, you would send the form data to your server
-            // For this demo, we'll just show a success message
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
-        });
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
-            // Simple validation
+            // Validate form
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const message = document.getElementById("message").value;
@@ -1711,8 +1702,29 @@
                 return;
             }
 
-            // Allow form submission
-            this.submit();
+            // Send to Formspree
+            const formData = new FormData(this);
+            
+            fetch("https://formspree.io/f/xeoeyzpo", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success message
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                } else {
+                    alert("There was a problem sending your message. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Sorry, there was an error. Please try again later.");
+            });
         });
     </script>
 </body>
