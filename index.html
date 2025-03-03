@@ -1621,6 +1621,16 @@
         
         let currentTestimonial = 0;
         
+        // Initialize the first testimonial immediately
+        function initializeTestimonial() {
+            // Set initial testimonial content
+            const testimonial = testimonials[0];
+            testimonialImg.src = testimonial.image;
+            testimonialText.textContent = testimonial.text;
+            testimonialAuthor.textContent = testimonial.author;
+            testimonialCompany.textContent = testimonial.company;
+        }
+
         function updateTestimonial() {
             const testimonial = testimonials[currentTestimonial];
             testimonialImg.src = testimonial.image;
@@ -1629,6 +1639,9 @@
             testimonialCompany.textContent = testimonial.company;
         }
         
+        // Call initializeTestimonial when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeTestimonial);
+
         document.querySelector('#testimonials .prev').addEventListener('click', () => {
             currentTestimonial = (currentTestimonial > 0) ? currentTestimonial - 1 : testimonials.length - 1;
             updateTestimonial();
