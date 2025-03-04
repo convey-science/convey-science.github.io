@@ -389,28 +389,35 @@
         }
         
         .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 1.5rem;
+            justify-content: center;
         }
-        
+
         .portfolio-item {
+            flex: 0 0 300px;
+            height: 250px;
             overflow: hidden;
             border-radius: 3px;
             box-shadow: var(--box-shadow);
             background-color: var(--light-color);
             cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
         }
-        
+
         .portfolio-item:hover {
             transform: translateY(-5px);
         }
-        
+
         .portfolio-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
             display: block;
             transition: var(--transition);
         }
@@ -453,9 +460,8 @@
         }
 
         .modal-img {
-            width: 100%;
-            height: auto;
-            max-height: calc(75vh - 30px); /* Adjusted to account for padding */
+            max-width: 100%;
+            max-height: calc(75vh - 30px);
             object-fit: contain;
             display: block;
             margin: 0 auto;
@@ -631,6 +637,7 @@
             margin-top: 3rem;
             justify-items: center; /* Centers items horizontally in their grid cells */
             align-items: center;
+            justify-content: center;
         }
         
         .client-item {
@@ -1156,68 +1163,65 @@
         </div>
     </section>
 
-        <!-- Clients Section -->
-        <section id="clients">
-            <div class="container">
-                <h2>Our Clients</h2>
-                <p>We've helped researchers and organizations across various scientific disciplines communicate their work effectively.</p>
-                
-                <div class="clients-grid">
-                    <!-- These will be replaced with actual client logos -->
-                    <img src="/images/clients/client_01.png" alt="Client 1" class="client-logo">
-                    <img src="/images/clients/client_02.png" alt="Client 2" class="client-logo">
-                    <img src="/images/clients/client_03.png" alt="Client 3" class="client-logo">
-                    <img src="/images/clients/client_04.jpg" alt="Client 4" class="client-logo">
-                    <img src="/images/clients/client_05.jpg.png" alt="Client 5" class="client-logo">
-                    <img src="/images/clients/client_06.png" alt="Client 6" class="client-logo">
-                    <img src="/images/clients/client_07.png" alt="Client 7" class="client-logo">
-                    <img src="/images/clients/client_08.jpg" alt="Client 8" class="client-logo">
-
-                </div>
+    <!-- Clients Section -->
+    <section id="clients">
+        <div class="container">
+            <h2>Our Clients</h2>
+            <p>We've helped researchers and organizations across various scientific disciplines communicate their work effectively.</p>
+            
+            <div class="clients-grid">
+                <!-- Using the new logo naming convention from logo_01 to logo_22 -->
+                <img src="/images/clients/logo_01.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_02.jpg" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_03.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_04.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_05.jpg" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_06.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_07.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_08.jpg" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_09.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_10.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_11.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_12.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_13.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_14.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_16.jpg" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_17.jpg" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_18.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_19.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_20.png" alt="Client Logo" class="client-logo">
+                <img src="/images/clients/logo_21.png" alt="Client Logo" class="client-logo">
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials">
-        <div class="container">
-            <h2>Client Testimonials</h2>
-            
-            <div class="testimonial-carousel">
-                <div class="testimonial-item">
-                    <img src="/api/placeholder/100/100" alt="Client Photo" class="testimonial-img">
-                    <p class="testimonial-text">"Susana transformed our complex research into stunning visuals that helped us secure our NSF grant. Her scientific background was invaluable in accurately capturing the nuances of our work."</p>
-                    <h4 class="testimonial-author">Dr. Jane Smith</h4>
-                    <p class="testimonial-company">University of Illinois</p>
-                </div>
-                
-                <!-- More testimonials will be added here -->
+    <div class="container">
+        <h2>Client Testimonials</h2>
+        
+        <div class="testimonial-carousel">
+            <div class="testimonial-item">
+                <img src="/api/placeholder/100/100" alt="Client Photo" class="testimonial-img">
+                <p class="testimonial-text">"Susana transformed our complex research into stunning visuals that helped us secure our NSF grant. Her scientific background was invaluable in accurately capturing the nuances of our work."</p>
+                <h4 class="testimonial-author">Dr. Jane Smith</h4>
+                <p class="testimonial-company">University of Illinois</p>
             </div>
             
-            <div class="carousel-controls">
-                <div class="carousel-control prev">←</div>
-                <div class="carousel-control next">→</div>
-            </div>
+            <!-- More testimonials will be added here -->
         </div>
+        
+        <div class="carousel-controls">
+            <div class="carousel-control prev">←</div>
+            <div class="carousel-control next">→</div>
+        </div>
+    </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio" style="padding-top: 2rem;"> 
         <div class="container">
-            <h2>Our Portfolio</h2>
-            
-            <!-- Portfolio Carousel for larger screens -->
-            <div class="carousel-controls" style="margin-bottom: 1rem; margin-top: -1rem;">
-                <div class="carousel-control prev">←</div>
-                <div class="carousel-control next">→</div>
-            </div>
-            <div class="portfolio-carousel">
-                <div class="carousel-inner" id="portfolioCarousel">
-                    <!-- JavaScript will populate this area -->
-                </div>
-            </div>
-            
-            <!-- Add spacing between carousel and filters -->
-            <div style="margin-top: 2rem;"></div>
+            <h2>Select Portfolio</h2>
             
             <!-- Filters -->
             <div class="filters">
@@ -1233,7 +1237,7 @@
             </div>
             
             <!-- Portfolio Modal (appears when item is clicked) -->
-            <div class="portfolio-modal" id="portfolioModal">
+            <div class="portfolio-modal" id="portfolioModal" style="display: none;"> 
                 <div class="modal-content">
                     <span class="modal-close">&times;</span>
                     <div class="modal-img-container">
@@ -1462,21 +1466,7 @@
             // You can add more items here as needed
         ];
 
-        // Function to populate the portfolio carousel
-        function populatePortfolioCarousel() {
-            const carouselContainer = document.getElementById('portfolioCarousel');
-            carouselContainer.innerHTML = ''; // Clear existing content
-            
-            portfolioData.forEach((item) => {
-                const carouselItem = document.createElement('div');
-                carouselItem.className = 'carousel-item';
-                carouselItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}" class="portfolio-preview">
-                `;
-                carouselContainer.appendChild(carouselItem);
-            });
-        }
-
+        
         // Function to populate the portfolio grid
         function populatePortfolioGrid() {
             const gridContainer = document.getElementById('portfolioGrid');
@@ -1540,39 +1530,7 @@
             });
         }
 
-        // Portfolio Carousel Controls
-        function setupPortfolioCarousel() {
-            const carousel = document.getElementById('portfolioCarousel');
-            const carouselItems = document.querySelectorAll('#portfolioCarousel .carousel-item');
-            const prevBtn = document.querySelector('#portfolio .carousel-controls .prev');
-            const nextBtn = document.querySelector('#portfolio .carousel-controls .next');
-            let currentSlide = 0;
-            
-            function updateCarousel() {
-                carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-            }
-            
-            // Debug
-            console.log('Carousel elements:', {
-                carousel: carousel,
-                items: carouselItems.length,
-                prevBtn: prevBtn,
-                nextBtn: nextBtn
-            });
-            
-            prevBtn.addEventListener('click', () => {
-                console.log('Previous button clicked');
-                currentSlide = (currentSlide > 0) ? currentSlide - 1 : carouselItems.length - 1;
-                updateCarousel();
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                console.log('Next button clicked');
-                currentSlide = (currentSlide < carouselItems.length - 1) ? currentSlide + 1 : 0;
-                updateCarousel();
-            });
-        }
-
+        
         // Modal Close Functionality
         function setupPortfolioModal() {
             const portfolioModal = document.getElementById('portfolioModal');
@@ -1611,12 +1569,10 @@
         // Initialize portfolio section
         document.addEventListener('DOMContentLoaded', function() {
             // Populate portfolio items
-            populatePortfolioCarousel();
             populatePortfolioGrid();
             
             // Set up interactive elements
             setupPortfolioFilters();
-            setupPortfolioCarousel();
             setupPortfolioModal();
         });
         
