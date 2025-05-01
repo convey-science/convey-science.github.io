@@ -417,7 +417,7 @@
         }
         
         /* Portfolio Section */
-        #portfolio {
+        /* #portfolio {
             background-color: white;
         }
         
@@ -566,7 +566,7 @@
         .modal-close:hover {
             background: var(--primary-color);
             transform: scale(1.1);
-        }
+        } */
         
         /* Responsive adjustments */
         
@@ -776,7 +776,7 @@
 
         /* About Section */
         #about {
-            background-color: var(--accent-color);
+            background-color: white ;
             position: relative;
         }
         
@@ -821,7 +821,7 @@
         /* Contact Section */
         #contact {
             margin-top: -2rem;
-            background-color: white;
+            background-color: var(--accent-color);
         }
         
         .contact-container {
@@ -1150,7 +1150,7 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#clients">Clients</a></li>                    
                     <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+                    <!-- <li><a href="#portfolio">Portfolio</a></li> -->
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact"><strong>Contact</strong></a></li>
                 </ul>
@@ -1304,25 +1304,25 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" style="padding-top: 2rem;"> 
+    <!-- <section id="portfolio" style="padding-top: 2rem;"> 
         <div class="container">
-            <h2>Select Portfolio</h2>
+            <h2>Select Portfolio</h2> -->
             
             <!-- Filters -->
-            <div class="filters">
+            <!-- <div class="filters">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="stem">STEM</button>
                 <button class="filter-btn" data-filter="education">Education</button>
                 <button class="filter-btn" data-filter="outreach">Outreach</button>
-            </div>
+            </div> -->
             
             <!-- Portfolio Grid for filtered items -->
-            <div class="portfolio-grid" id="portfolioGrid">
+            <!-- <div class="portfolio-grid" id="portfolioGrid"> -->
                 <!-- JavaScript will populate this area -->
-            </div>
+            <!-- </div> -->
             
             <!-- Portfolio Modal (appears when item is clicked) -->
-            <div class="portfolio-modal" id="portfolioModal" style="display: none;"> 
+            <!-- <div class="portfolio-modal" id="portfolioModal" style="display: none;"> 
                 <div class="modal-content">
                     <span class="modal-close">&times;</span>
                     <div class="modal-img-container">
@@ -1335,7 +1335,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- About Section -->
     <section id="about">
@@ -1437,8 +1437,9 @@
                         <div class="quick-links-grid">
                             <a href="#hero">Home</a>
                             <a href="#services">Services</a>
-                            <a href="#portfolio">Portfolio</a>
+                            <!-- <a href="#portfolio">Portfolio</a> -->
                             <a href="#about">About</a>
+                            <a href="#clients">Clients</a>
                         </div>
                     </div>
                     
@@ -1505,161 +1506,161 @@
         });
         
         // Portfolio Data - Define all portfolio items in one place
-        const portfolioData = [
-            {
-                id: 1,
-                title: "Portfolio Item 1",
-                description: "Detailed illustration of cellular processes showing protein interactions within a cell membrane.",
-                image: "/images/portfolio/portfolio_01.png",
-                category: "stem"
-            },
-            {
-                id: 2,
-                title: "Portfolio Item 2",
-                description: "Visualization of climate change impacts on coastal ecosystems over time.",
-                image: "/images/portfolio/portfolio_02.png",
-                category: "stem"
-            },
-            {
-                id: 3,
-                title: "Portfolio Item 3",
-                description: "Conceptual diagram explaining neural network architecture for machine learning applications.",
-                image: "/images/portfolio/portfolio_03.png",
-                category: "stem"
-            },
-            {
-                id: 4,
-                title: "Portfolio Item 4",
-                description: "Educational infographic on biodiversity concepts designed for high school curriculum.",
-                image: "/images/portfolio/portfolio_04.png",
-                category: "education"
-            },
-            {
-                id: 5,
-                title: "Portfolio Item 5",
-                description: "Detailed illustration of geological formations in cross-section for academic publication.",
-                image: "/images/portfolio/portfolio_05.png",
-                category: "stem"
-            },
-            {
-                id: 6,
-                title: "Portfolio Item 6",
-                description: "Grant proposal figure showing experimental setup for biochemistry research.",
-                image: "/images/portfolio/portfolio_06.png",
-                category: "stem"
-            }
+        // const portfolioData = [
+        //     {
+        //         id: 1,
+        //         title: "Portfolio Item 1",
+        //         description: "Detailed illustration of cellular processes showing protein interactions within a cell membrane.",
+        //         image: "/images/portfolio/portfolio_01.png",
+        //         category: "stem"
+        //     },
+        //     {
+        //         id: 2,
+        //         title: "Portfolio Item 2",
+        //         description: "Visualization of climate change impacts on coastal ecosystems over time.",
+        //         image: "/images/portfolio/portfolio_02.png",
+        //         category: "stem"
+        //     },
+        //     {
+        //         id: 3,
+        //         title: "Portfolio Item 3",
+        //         description: "Conceptual diagram explaining neural network architecture for machine learning applications.",
+        //         image: "/images/portfolio/portfolio_03.png",
+        //         category: "stem"
+        //     },
+        //     {
+        //         id: 4,
+        //         title: "Portfolio Item 4",
+        //         description: "Educational infographic on biodiversity concepts designed for high school curriculum.",
+        //         image: "/images/portfolio/portfolio_04.png",
+        //         category: "education"
+        //     },
+        //     {
+        //         id: 5,
+        //         title: "Portfolio Item 5",
+        //         description: "Detailed illustration of geological formations in cross-section for academic publication.",
+        //         image: "/images/portfolio/portfolio_05.png",
+        //         category: "stem"
+        //     },
+        //     {
+        //         id: 6,
+        //         title: "Portfolio Item 6",
+        //         description: "Grant proposal figure showing experimental setup for biochemistry research.",
+        //         image: "/images/portfolio/portfolio_06.png",
+        //         category: "stem"
+        //     }
             // You can add more items here as needed
-        ];
+        // ];
 
         
         // Function to populate the portfolio grid
-        function populatePortfolioGrid() {
-            const gridContainer = document.getElementById('portfolioGrid');
-            gridContainer.innerHTML = ''; // Clear existing content
+        // function populatePortfolioGrid() {
+        //     const gridContainer = document.getElementById('portfolioGrid');
+        //     gridContainer.innerHTML = ''; // Clear existing content
             
-            portfolioData.forEach((item) => {
-                const gridItem = document.createElement('div');
-                gridItem.className = 'portfolio-item';
-                gridItem.setAttribute('data-category', item.category);
-                gridItem.setAttribute('data-id', item.id);
-                gridItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}" class="portfolio-img">
-                `;
-                gridContainer.appendChild(gridItem);
+        //     portfolioData.forEach((item) => {
+        //         const gridItem = document.createElement('div');
+        //         gridItem.className = 'portfolio-item';
+        //         gridItem.setAttribute('data-category', item.category);
+        //         gridItem.setAttribute('data-id', item.id);
+        //         gridItem.innerHTML = `
+        //             <img src="${item.image}" alt="${item.title}" class="portfolio-img">
+        //         `;
+        //         gridContainer.appendChild(gridItem);
                 
-                // Add click event to show modal
-                gridItem.addEventListener('click', () => {
-                    openPortfolioModal(item);
-                });
-            });
-        }
+        //         // Add click event to show modal
+        //         gridItem.addEventListener('click', () => {
+        //             openPortfolioModal(item);
+        //         });
+        //     });
+        // }
 
         // Function to open portfolio modal with specific item data
-        function openPortfolioModal(item) {
-            const portfolioModal = document.getElementById('portfolioModal');
-            const modalImg = portfolioModal.querySelector('.modal-img');
-            const modalTitle = portfolioModal.querySelector('.modal-title');
-            const modalDescription = portfolioModal.querySelector('.modal-description');
+        // function openPortfolioModal(item) {
+        //     const portfolioModal = document.getElementById('portfolioModal');
+        //     const modalImg = portfolioModal.querySelector('.modal-img');
+        //     const modalTitle = portfolioModal.querySelector('.modal-title');
+        //     const modalDescription = portfolioModal.querySelector('.modal-description');
             
-            modalImg.src = item.image;
-            modalImg.alt = item.title;
-            modalTitle.textContent = item.title;
-            modalDescription.textContent = item.description;
+        //     modalImg.src = item.image;
+        //     modalImg.alt = item.title;
+        //     modalTitle.textContent = item.title;
+        //     modalDescription.textContent = item.description;
             
-            portfolioModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+        //     portfolioModal.style.display = 'block';
+        //     document.body.style.overflow = 'hidden';
+        // }
 
         // Portfolio Filtering
-        function setupPortfolioFilters() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
+        // function setupPortfolioFilters() {
+        //     const filterButtons = document.querySelectorAll('.filter-btn');
+        //     const portfolioItems = document.querySelectorAll('.portfolio-item');
             
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    button.classList.add('active');
+        //     filterButtons.forEach(button => {
+        //         button.addEventListener('click', () => {
+        //             // Remove active class from all buttons
+        //             filterButtons.forEach(btn => btn.classList.remove('active'));
+        //             // Add active class to clicked button
+        //             button.classList.add('active');
                     
-                    const filter = button.getAttribute('data-filter');
+        //             const filter = button.getAttribute('data-filter');
                     
-                    portfolioItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        }
+        //             portfolioItems.forEach(item => {
+        //                 if (filter === 'all' || item.getAttribute('data-category') === filter) {
+        //                     item.style.display = 'block';
+        //                 } else {
+        //                     item.style.display = 'none';
+        //                 }
+        //             });
+        //         });
+        //     });
+        // }
 
         
         // Modal Close Functionality
-        function setupPortfolioModal() {
-            const portfolioModal = document.getElementById('portfolioModal');
-            if (!portfolioModal) return;
+        // function setupPortfolioModal() {
+        //     const portfolioModal = document.getElementById('portfolioModal');
+        //     if (!portfolioModal) return;
             
-            // IMPORTANT: Make sure the modal is hidden by default
-            portfolioModal.style.display = 'none';
+        //     // IMPORTANT: Make sure the modal is hidden by default
+        //     portfolioModal.style.display = 'none';
             
-            const modalClose = portfolioModal.querySelector('.modal-close');
+        //     const modalClose = portfolioModal.querySelector('.modal-close');
             
-            function closeModal() {
-                portfolioModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
+        //     function closeModal() {
+        //         portfolioModal.style.display = 'none';
+        //         document.body.style.overflow = 'auto';
+        //     }
             
-            // Close icon (X) handler
-            if (modalClose) {
-                modalClose.addEventListener('click', closeModal);
-            }
+        //     // Close icon (X) handler
+        //     if (modalClose) {
+        //         modalClose.addEventListener('click', closeModal);
+        //     }
             
-            // Click outside modal to close
-            window.addEventListener('click', function(e) {
-                if (e.target === portfolioModal) {
-                    closeModal();
-                }
-            });
+        //     // Click outside modal to close
+        //     window.addEventListener('click', function(e) {
+        //         if (e.target === portfolioModal) {
+        //             closeModal();
+        //         }
+        //     });
             
-            // Add keyboard escape functionality
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && portfolioModal.style.display === 'block') {
-                    closeModal();
-                }
-            });
-        }
+        //     // Add keyboard escape functionality
+        //     document.addEventListener('keydown', function(e) {
+        //         if (e.key === 'Escape' && portfolioModal.style.display === 'block') {
+        //             closeModal();
+        //         }
+        //     });
+        // }
 
-        // Initialize portfolio section
-        document.addEventListener('DOMContentLoaded', function() {
-            // Populate portfolio items
-            populatePortfolioGrid();
+        // // Initialize portfolio section
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     // Populate portfolio items
+        //     populatePortfolioGrid();
             
-            // Set up interactive elements
-            setupPortfolioFilters();
-            setupPortfolioModal();
-        });
+        //     // Set up interactive elements
+        //     setupPortfolioFilters();
+        //     setupPortfolioModal();
+        // });
         
         // Testimonial Carousel
         const testimonials = [
