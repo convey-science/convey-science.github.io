@@ -309,6 +309,8 @@
         
         .why-us-item:hover {
             transform: translateY(-5px);
+            background-color: var(--accent-color); /* Changes to the accent color on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45); /* Optional: enhanced shadow for more depth */
         }
         
         .why-us-item h3 {
@@ -325,23 +327,93 @@
         #services {
             background-color: var(--accent-color);
         }
-        
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
-        
+
         .service-item {
             background-color: white;
             padding: 1rem;
             border-radius: 3px;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
+            position: relative; /* Add this line */
+            overflow: visible; /* Add this to ensure the bubble isn't cut off */
         }
-        
+
         .service-item:hover {
             transform: translateY(-5px);
+            z-index: 20; /* Higher z-index when hovered to appear above other elements */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45); /* Optional: enhanced shadow for more depth */
+        }
+        #funding-counter-section {
+            background-color: rgb(6, 39, 58) !important;
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .funding-counter-container {
+            text-align: center;
+            color: white !important;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Funding counter bubble - Add here */
+        .funding-bubble {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            font-weight: bold;
+            box-shadow: var(--box-shadow);
+            position: absolute; /* Changed from relative to absolute */
+            bottom: -50px; /* Position it 30px below the box bottom */
+            right: -40px; /* Position it 20px beyond the right edge */
+            transform: rotate(-5deg);
+            z-index: 10; /* Ensure it appears above other elements */
+            transition: var(--transition); /* Add the same transition as the service-item */
+        }
+
+        .funding-amount {
+            font-size: 4.5rem;
+            font-weight: bold;
+            margin: 0.75rem 0;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            color: white !important;
+        }
+
+        .funding-text {
+            font-size: 3.5rem;
+            margin-right: 0.5rem;
+            color: white !important;
+        }
+
+        #fundingCounter {
+            font-size: 4.5rem;
+            letter-spacing: 1px;
+            color: white !important;
+        }
+
+        .funding-label {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            margin: 1rem 0;
+            color: white !important;
         }
         
         /* Portfolio Section */
@@ -497,6 +569,7 @@
         }
         
         /* Responsive adjustments */
+        
         @media (max-width: 768px) {
             .modal-content {
                 width: 95%;
@@ -1124,6 +1197,18 @@
         </div>
     </section>
 
+    <section id="funding-counter-section">
+        <div class="container">
+            <div class="funding-counter-container">
+                <div class="funding-label">Convey graphics have empowered clients to successfully secure</div>
+                <div class="funding-amount">
+                    <span class="funding-text">$</span><span id="fundingCounter">0</span>
+                </div>
+                <div class="funding-label">in federal research funding</div>
+            </div>
+        </div>
+    </section>
+
     <!-- What We Do Section -->
     <section id="services">
         <div class="container">
@@ -1137,7 +1222,7 @@
                 
                 <div class="service-item">
                     <h3>Grant Proposal Graphics</h3>
-                    <p>Eye-catching visuals for NIH, DOE, NSF, and other federal grant proposals.</p>
+                    <p>Eye-catching visuals for NIH, DOE, NSF, NASA, and other grant proposals.</p>
                 </div>
                 
                 <div class="service-item">
@@ -1264,7 +1349,7 @@
                 
                 <div class="about-text">
                     <h3>Our Story</h3>
-                    <p><strong>Susana Roque-Malo, PhD </strong> founded Convey Science LLC in 2021 to help researchers beautifully convey the stories behind their science.</p>
+                    <p><strong>Susana Roque-Malo, PhD </strong> founded Convey Science LLC in 2022 to help researchers beautifully convey the stories behind their science.</p>
                     
                     <h3>Credentials</h3>
                     <p>Roque-Malo holds a PhD in Civil Engineering (hydrology) from the University of Illinois Urbana Champaign. She has extensive experience providing graphics support for NSF, USDA, NIH, DOT, DOE, EDA, and other grant proposals, and leading peer-reviewed scientific journals.</p>
@@ -1337,7 +1422,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <a href="#" class="footer-logo">Convey</a>
-                    <p>Making science accessible through beautiful, accurate visualizations since 2021.</p>
+                    <p>Making science accessible through beautiful, accurate visualizations since 2022.</p>
                     
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/convey-science-llc/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -1591,10 +1676,22 @@
                 image: "/images/testimonials/testimonial_02.jpg"
             },
             {
+                author: "Prof. Don Fox",
+                company: "Pharmacology & Cancer Biology, Duke University School of Medicine",
+                text: "I highly recommend working with Susana! She was incredibly prompt, and the quality of her work was exceptional. I have received many compliments on the nice figures that she made for a recent review article.",
+                image: "/images/testimonials/testimonial_05.jpg"
+            },
+            {
                 author: "Prof. Jason Vogel",
                 company: "Forest Ecosystems Science, University of Florida",
                 text: "Convey Science helped bring my rough ideas into focus.  Susana was a pleasure to work with, responding to many requests over multiple iterations until we had a product that we were happy with. I would gladly use Convey Science in the future.",
                 image: "/images/testimonials/testimonial_03.png"
+            },
+            {
+                author: "Assistant Prof. Ivan Ruchkin",
+                company: "Electrical and Computer Engineering, University of Florida",
+                text: "Susana designed illustrations for my grant proposal to the National Science Foundation, for a program highly competitive among junior faculty. She produced excellent images with appropriate visual taste. Susana also communicated promptly, iterated quickly, and addressed my requests precisely. The proposal was funded on the first try! I am fully satisfied with her work and would be happy to work with her again.",
+                image: "/images/testimonials/testimonial_04.jpg"
             },
             
         ];
@@ -1681,6 +1778,54 @@
                 console.error('Error:', error);
                 alert("Sorry, there was an error. Please try again later.");
             });
+        });
+        // Funding counter animation
+        function animateFundingCounter() {
+            const counterElement = document.getElementById('fundingCounter');
+            if (!counterElement) return;
+            
+            const targetValue = 99713656;
+            const duration = 2000; // 2 seconds
+            const interval = 20; // Update every 20ms
+            const steps = duration / interval;
+            const increment = targetValue / steps;
+            
+            let current = 0;
+            const timer = setInterval(() => {
+                current += increment;
+                
+                if (current >= targetValue) {
+                    current = targetValue;
+                    clearInterval(timer);
+                }
+                
+                // Format with commas
+                counterElement.textContent = Math.floor(current).toLocaleString();
+            }, interval);
+        }
+
+        // Run the counter animation when the element comes into view
+        function setupCounterAnimation() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateFundingCounter();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const counterSection = document.getElementById('funding-counter-section');
+            if (counterSection) {
+                observer.observe(counterSection);
+            }
+
+        }
+
+        // Add this to your existing DOMContentLoaded event handler
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... your existing code
+            setupCounterAnimation();
         });
     </script>
 </body>
